@@ -2,19 +2,22 @@
 #include "train.h"
 Train::Train():countOp(0), first(nullptr) {}
 void Train::addCage(bool light) {
-    Cage* cage = new Cage;
-    cage->light = light;
-    cage->next = cage;
-    cage->prev = cage;
-        if (first == nullptr) {
-        first = cage;
-   } else {
-        cage->next = first;
-        cage->prev = first->prev;
-        first->prev->next = cage;
-        first->prev = cage;
-  }
-}
+   if (first == nullptr) {
+           Cage* cage = new Cage;
+           cage->light = light;
+           cage->next = cage;
+           cage->prev = cage;
+           first = cage;
+       }
+       else {
+           Cage* cage = new Cage;
+           cage->light = light;
+           cage->next = first;
+           cage->prev = first->prev;
+           first->prev->next = cage;
+           first->prev = cage;
+       }
+   }
 int Train::getLength() {
     if (first == nullptr) {
         return 0;  
