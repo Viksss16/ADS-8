@@ -19,7 +19,6 @@ int Train::getLength() {
     if (first == nullptr) {
     return 0;  
     }
-    int getLength() {
     first->light = true;
     Cage* First = first;
     int off = 1, count = 1;
