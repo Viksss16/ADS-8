@@ -28,6 +28,7 @@ int Train::getLength() {
             count += off + 1;
             countOp += 2 * off;
             off = 0;
+            current->light = false;
         }
         current = current->next;
     }
