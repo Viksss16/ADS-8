@@ -17,19 +17,19 @@ void Train::addCage(bool light) {
        }
    }
 int Train::getLength() {
-   first->light = true;
-    Cage* First = first;
-    int off = 0, count = 1;
-    while (first->light) {
-        First = first->next;
-        while (!First->light) {
-            First = First->next;
-            off++;
+    first->light = true;
+    int count = 1;
+    Cage* current = first;
+    while (current -> light) {
+        count = 1;
+        current = first->next;
+        while (!current->light) {
+            current = current->next;
+            count++;
         }
-        count += off;
-        countOp += 2 * off;
-        First->light = false;  
-    }
+        current->light = false;
+        countOp += 2 * count;
+        }
     return count;
 }
 int Train::getOpCount() { 
